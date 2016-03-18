@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company: parrot
+  siret: empty
+  status: 1
+
+two:
+  company: does_not_exist
+  siret: empty
+  status: 1

@@ -1,0 +1,9 @@
+<h1>Web scrapper</h1>
+
+<div style="width:90%;margin-left: 20px;">
+  <%= bootstrap_form_tag url: 'search#do_search' do |f| %>
+      <%= f.text_field :company, value: 'Google' %>
+      <%= f.text_field :siret, value: 'siret' %>
+      <%= f.submit %>
+  <% end %>
+</div>

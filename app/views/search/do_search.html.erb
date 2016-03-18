@@ -1,0 +1,29 @@
+<h1>Web scrapper</h1>
+
+<div>
+<span id="status">searching</span> <%= @search.company %>
+</div>
+
+<div id="result"></div>
+
+<script>
+  (function() {
+    function pollSearch() {
+      $.getJSON('search/' + <%= @search.id %>)
+          .done(function (data) {
+            $.each(data.results, function (i, result) {
+              $('#result').empty
+              $('#result').append($('<div\>',{text: result.note}))
+            });
+            if (data.status != 'done'){
+              setTimeout(pollSearch, 1000);
+            }
+            else
+            {
+              $('#status').text("completed search for")
+            }
+          });
+    }
+    pollSearch();
+  })();
+</script>
