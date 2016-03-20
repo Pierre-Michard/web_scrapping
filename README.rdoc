@@ -1,27 +1,36 @@
-== Méthodologie  proposée pour établir un algorithme de scoring
+= Méthodologie  proposée pour établir un algorithme de scoring
 
-= Fame et Innovation
+== Données quantifiables (fame et innovation)
 
 1. Etablir une base des données résultante de la recherche à partir d'un panel d'entreprises
+2. Pour chaque source:
+ * établir la répartition du panel de test
+ * normaliser les résultats sur une échelle de 0 à 1
+ * 0 correspond au résultat minimum
+ * 1 correspond au résultat maximum
+ * une régression linéaire sur les percentiles permettra de calculer une formule de normalisation
+     note de 0.5 si le nombre de brevet équivaut à la médiane.
+     note > 0.75 si 75 pour cent des entreprises du panel a une quantité inférieur.
+3. Au besoin établir une pondération des sources (inpi plus importante que google par exemple)
+4. calculer le résultat (entre 0 et 1) en fonction du score normalisé et de la pondération
+5. On peut déjà attribuer une valeur de 0 à 1 et une note pour un critère donnée
 
-2. 
+== Données non quantifiables (parcours professionnel du dirigent)
 
-* Ruby version
+Liste des critères qui peuvent participer à la note finale:
 
-* System dependencies
+1. Diplôme obtenu.
+2. Ecoles d'obtention du diplôme.
+3. Nombre de relations linkedin.
+4. Compétences.
+5. Nombre de recommandations.
+6. Présence de mots clefs dans chaque recommandations.
+7. Période d'innactivité.
+8. Note obtenue dans notre algorithme de chacune des entreprises ou la personne a travaillé.
 
-* Configuration
+Pour chacun des critères, on pourrait utiliser la même métodologie de création d'une note de 0 à 1, de pondération
+puis de calcul de la note finale.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Questions ouvertes:
+  - Comment établir un algorithme de notations à partir de recherche de mots clefs?
+  - Peut-on automatiser la pondération des critères grâce à de l'intelligence artifielle?
