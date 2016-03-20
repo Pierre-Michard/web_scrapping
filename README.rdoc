@@ -1,9 +1,10 @@
-== README
+== Méthodologie  proposée pour établir un algorithme de scoring
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+= Fame et Innovation
 
-Things you may want to cover:
+1. Etablir une base des données résultante de la recherche à partir d'un panel d'entreprises
+
+2. 
 
 * Ruby version
 
@@ -20,8 +21,6 @@ Things you may want to cover:
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
-
-* ...
 
 
 Please feel free to use a different markup language if you do not plan to run
