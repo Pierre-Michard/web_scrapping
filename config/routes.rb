@@ -1,15 +1,14 @@
-Rails.application.routes.draw do
-  get 'welcome/index'
 
+Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'search#new'
+  root 'search#welcome'
 
   # Example of regular route:
-  get 'search' => 'search#new'
-  post 'search' => 'search#do_search'
+  get 'search'     => 'search#welcome'
+  post 'search'    => 'search#new'
   get 'search/:id' => 'search#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

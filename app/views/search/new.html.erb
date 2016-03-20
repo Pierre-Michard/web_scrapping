@@ -1,9 +1,51 @@
-<h1>Web scrapper</h1>
-
-<div style="width:90%;margin-left: 20px;">
-  <%= bootstrap_form_tag url: 'search#do_search' do |f| %>
-      <%= f.text_field :company, value: 'Google' %>
-      <%= f.text_field :siret, value: 'siret' %>
-      <%= f.submit %>
-  <% end %>
+<style>
+  table {
+    width: 90%;
+  }
+  td {
+    width: 33%;
+  }
+  .even{
+    background-color: lightgrey;
+  }
+  span.company-name{
+    font-weight: bold;
+  }
+</style>
+<div>
+  <span id="status">
+    <img src="spinner.gif" height="20" width="20">searching for
+  </span>
+  <span class="company-name">
+    <%= @search.company %>
+  </span>
 </div>
+
+<table id="result"></table>
+
+<script>
+  (function() {
+    function pollSearch() {
+      $.getJSON('search/' + <%= @search.id %>)
+          .done(function (data) {
+            $('#result').empty();
+            $.each(data.results, function (i, result) {
+              res =$('<tr\>');
+              res.append($('<td\>', {text: result.name}));
+              res.append($('<td\>', {text: result.note}));
+              res.append($('<td\>', {html: result.data}));
+              $('#result').append(res);
+              $('#result tr:even').addClass('even')
+            });
+            if (data.status != 'done'){
+              setTimeout(pollSearch, 1000);
+            }
+            else
+            {
+              $('#status').text("Search complete for");
+            }
+          });
+    }
+    pollSearch();
+  })();
+</script>

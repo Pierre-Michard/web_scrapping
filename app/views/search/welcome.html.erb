@@ -1,0 +1,7 @@
+<div style="width:90%;margin-left: 20px;">
+  <%= bootstrap_form_tag url: 'search' do |f| %>
+      <%= f.text_field :company, value: '' %>
+      <%= f.text_field :siren, value: '' %>
+      <%= f.submit 'search'%>
+  <% end %>
+</div>

@@ -1,13 +1,13 @@
 class SearchController < ApplicationController
-  def new
-    @search = Search.new
+  def welcome
   end
 
-  def do_search
+  def new
     @company = params[:company]
-    @siret = params[:siret]
+    @siren = params[:siren].try(:delete, ' ')
+    @siren = nil if @siren == 'siren'
 
-    @search = Search.create(company:@company, siret: @siret, status: 'searching')
+    @search = Search.create(company:@company, siren: @siren, status: 'searching')
     SearchCompanyJob.perform_later(@search.id)
   end
 

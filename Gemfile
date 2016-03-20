@@ -50,7 +50,7 @@ gem "twitter-bootstrap-rails"
 
 gem 'bootstrap_form'
 gem 'resque'
-gem 'resque-web', require: 'resque_web'
 gem 'nokogiri'
 gem 'httparty'
+gem 'mechanize'
 

@@ -1,11 +1,31 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+parrot:
   company: parrot
-  siret: empty
+  siren: 394149496
   status: 1
 
-two:
-  company: does_not_exist
-  siret: empty
+inexistant:
+  company: introuvabllleeee
+  siren: siren
+  status: 1
+
+technilum:
+  company: technilum
+  siren: 750214926
+  status: 1
+
+nicomatic:
+  company: nicomatic
+  siren: 306926684
+  status: 1
+
+ynsect:
+  company: ynsect
+  siren: 534948617
+  status: 1
+
+origin:
+  company: ACQUIYA
+  siren: 798240438
   status: 1
