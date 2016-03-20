@@ -5,11 +5,11 @@
 1. Etablir une base des données résultante de la recherche à partir d'un panel d'entreprises
 2. Pour chaque source:
 
- * établir la répartition du panel de test
- * normaliser les résultats sur une échelle de 0 à 1
- * 0 correspond au résultat minimum
- * 1 correspond au résultat maximum
- * une régression linéaire sur les percentiles permettra de calculer une formule de normalisation
+* établir la répartition du panel de test
+* normaliser les résultats sur une échelle de 0 à 1
+* 0 correspond au résultat minimum
+* 1 correspond au résultat maximum
+* une régression linéaire sur les percentiles permettra de calculer une formule de normalisation
      note de 0.5 si le nombre de brevet équivaut à la médiane.
      note > 0.75 si 75 pour cent des entreprises du panel a une quantité inférieur.
 3. Au besoin établir une pondération des sources (inpi plus importante que google par exemple)
@@ -33,5 +33,5 @@ Pour chacun des critères, on pourrait utiliser la même métodologie de créati
 puis de calcul de la note finale.
 
 Questions ouvertes:
-  - Comment établir un algorithme de notations à partir de recherche de mots clefs?
-  - Peut-on automatiser la pondération des critères grâce à de l'intelligence artifielle?
+- Comment établir un algorithme de notations à partir de recherche de mots clefs?
+- Peut-on automatiser la pondération des critères grâce à de l'intelligence artifielle?
