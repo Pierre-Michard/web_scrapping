@@ -3,8 +3,10 @@ class Boss
     @company_name = search.company
     @siren = search.siren
     @boss_name = find_boss
-    @first_name = @boss_name.split[1] unless @boss_name.blank?
-    @last_name = @boss_name.split[2].capitalize  unless @boss_name.blank?
+    unless @boss_name.blank?
+      @first_name = @boss_name.split[1].try(:capitalize)
+      @last_name  = @boss_name.split[2].try(:capitalize)
+    end
   end
 
 
@@ -24,7 +26,7 @@ class Boss
     page = mechanize.get('https://fr.linkedin.com')
     form = page.forms.third
     form['first'] = @first_name
-    form['last'] = @last_name
+    form['last']  = @last_name
     page = form.submit.uri
   end
 

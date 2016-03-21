@@ -19,18 +19,47 @@
 
 Liste des critères qui peuvent participer à la note finale:
 
-1. Diplôme obtenu.
-2. Ecoles d'obtention du diplôme.
+1. Diplôme obtenu (notation en fonction du nombre d'années d'études)
+2. Ecoles d'obtention du diplôme (établir une notation en utilisant un classement type l'étudiant)
+ http://www.letudiant.fr/palmares/palmares-des-grandes-ecoles-de-commerce/excellence-academique-1.html
+ http://www.letudiant.fr/palmares/palmares-des-ecoles-d-ingenieurs/excellence-academique-2.html
 3. Nombre de relations linkedin.
-4. Compétences.
+4. Compétences (lister les compétences en rapport avec l'entreprenariat, compter les recommandations)
 5. Nombre de recommandations.
-6. Présence de mots clefs dans chaque recommandations.
-7. Période d'innactivité.
-8. Note obtenue dans notre algorithme de chacune des entreprises ou la personne a travaillé.
+6. Note obtenue dans notre algorithme de chacune des entreprises ou la personne a travaillé.
+7. Présence de mots clefs dans chaque recommandations.
+8. Période d'innactivité.
 
-Pour chacun des critères, on pourrait utiliser la même métodologie de création d'une note de 0 à 1, de pondération
-puis de calcul de la note finale.
+Pour chacun des critères, on doit
+- récupérer une valeur numérique
+- Etablir sa répartition
+- normaliser la valeur pour obtenir une note entre 0 et 1.
+
+Une pondération doit être appliqué à chaque critère pour que la note finale soit plus influencée par les critères
+majeurs que par les critères mineures. La pondération peut être faite à la main dans un premier temps, en déterminant
+de façon intuitives quels critères mettre en valeur.
+
+La note finale peut être une moyenne des note établies pour chaque critère. On peut, ici encore pondérer les critères
+selon leur importance.
+
+
+Pour automatiser cette pondération, tout en se basant sur des critères factuels,on pourrait utiliser un réseau de
+neurones avec:
+- en entrée la liste des différents résultats normalisée.
+- en sortie la note finale.
+Si on estime que la note d'une agence de notation est un cirtère statistiquement fiable pour juger de la solvabilité
+d'une entreprise, on pourrrait entrainer le réseau de neurones à obtenir des résultats proches de ceux des agences de
+notations.
+Si on parvient à partir de critères qualitatifs dans la plupart des cas à une note équivalente de celle obtenue grâce à
+des critères quantitatifs, on peut estimer que le modèle est bon.
+
 
 Questions ouvertes:
-- Comment établir un algorithme de notations à partir de recherche de mots clefs?
-- Peut-on automatiser la pondération des critères grâce à de l'intelligence artifielle?
+- Peut-on établir un critère de notation à partir de recherche de mots clefs, dans les articles de presses ou les
+recommandations linked-in? Ce genre d'algorithme existe t'il déjà tout fait?
+- Quelle est la meilleure manière de normaliser les données issues du panel de test. Peut-être que la régression linéaire
+n'est pas toujours le meilleur modèle. Apparemment pour être exploitables, la répartition des données normalisées doit
+suivre une distribution normale. D'après ce que j'ai vu la détermination de la transformation à effectuer se fait
+en essayant plusieurs methodes jusqu'à trouver celle qui donne une répartition normale:
+ (ln(x), ln(x+1), racine carré(x), racine quatrième de x...)
+- Comment établir le pannel de test (taille des entreprises que l'on souhaite étudier, localisation).
