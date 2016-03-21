@@ -56,6 +56,7 @@ calculée grâce à des critères quantitatifs, on peut estimer que le modèle e
 
 
 == Questions ouvertes
+
 - Peut-on établir un critère de notation à partir de recherche de mots clefs, dans les articles de presses ou les
 recommandations linked-in? Ce genre d'algorithme existe-t-il déjà tout fait?
 - Quelle est la meilleure manière de normaliser les données issues du panel de test?
