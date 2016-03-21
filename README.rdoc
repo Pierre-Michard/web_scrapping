@@ -2,7 +2,7 @@
 
 == Données quantifiables (fame et innovation)
 
-1. Etablir une base des données résultante de la recherche à partir d'un panel d'entreprises
+1. Etablir une base des données issue des résultats de la recherche sur un panel d'entreprises
 2. Pour chaque source:
 *  établir la répartition du panel de test
 *  normaliser les résultats sur une échelle de 0 à 1
